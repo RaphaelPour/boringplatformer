@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://img/Fishmonger_2_16x16.png" type="Texture" id=1]
 [ext_resource path="res://entity/Player.gd" type="Script" id=2]
+[ext_resource path="res://img/coin.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -247,7 +248,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 49 )
 animation = "right_idle"
-frame = 4
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -256,3 +257,19 @@ shape = SubResource( 50 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="HUD" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Sprite" type="Sprite" parent="Camera2D/HUD"]
+position = Vector2( -128, -64 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Camera2D/HUD"]
+margin_left = -120.0
+margin_top = -72.0
+margin_right = -80.0
+margin_bottom = -56.0
+text = "1234"
+__meta__ = {
+"_edit_use_anchors_": false
+}

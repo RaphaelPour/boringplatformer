@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var speed=200
 export var action = "down"
+export var coins = 0
 var velocity = Vector2.ZERO
 
 export var JUMP_HEIGHT:float = -300
@@ -9,7 +10,10 @@ export var GRAVITY:float = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var dynamic_font = DynamicFont.new()
+	dynamic_font.font_data = load("res://font/magero.ttf")
+	dynamic_font.size = 64
+	$Camera2D/HUD/Label.set("custom_fonts/font", dynamic_font)
 
 func _process(_delta):
 	$AnimatedSprite.play(move())
