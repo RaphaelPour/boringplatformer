@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Coin",
 "language": "GDScript",
 "path": "res://obj/Coin.gd"
+}, {
+"base": "Control",
+"class": "GameOver",
+"language": "GDScript",
+"path": "res://obj/GameOver.gd"
 } ]
 _global_script_class_icons={
-"Coin": ""
+"Coin": "",
+"GameOver": ""
 }
 
 [application]

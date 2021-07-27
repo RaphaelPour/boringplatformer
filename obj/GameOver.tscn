@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://obj/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://font/Magero.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/MenuButtonFont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "GAME OVER"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 320.0
+margin_bottom = 59.0
+
+[node name="RetryButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 62.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "RETRY"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 66.0
+margin_right = 118.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "EXIT"
+script = SubResource( 2 )
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_button_up"]
